@@ -25,7 +25,6 @@ void ADiceCharacter::SetupPlayerInputComponent(
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-    // 1. Active le Mapping Context
     if (APlayerController* PlayerController =
         Cast<APlayerController>(GetController()))
     {
@@ -40,7 +39,6 @@ void ADiceCharacter::SetupPlayerInputComponent(
         }
     }
 
-    // 2. Relie IA_Move à la fonction Move()
     if (UEnhancedInputComponent* EnhancedInputComponent =
         Cast<UEnhancedInputComponent>(PlayerInputComponent))
     {
@@ -60,7 +58,7 @@ void ADiceCharacter::Move(const FInputActionValue& Value)
 {
     const FVector2D MovementVector = Value.Get<FVector2D>();
 
-    AddMovementInput(
+     AddMovementInput(
         GetActorForwardVector(),
         MovementVector.Y
     );
